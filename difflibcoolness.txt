@@ -1,0 +1,23 @@
+>>> f = open('pagecopy/http___www_fogglyboggly_com_article_view_php_ID_11','r')
+>>> f2 = open('pagecopy/http___www_fogglyboggly_com_article_view_php_ID_2','r')
+>>> f3 = open('pagecopy/http___www_fogglyboggly_com_article_view_php_ID_8','r')
+>>> f = f.read()
+>>> f2 = f2.read()
+>>> f3 = f3.read()
+>>> foo = difflib.SequenceMatcher(f2,f3)
+>>> print foo.get_matching_blocks()
+[Match(a=1640, b=0, size=0)]
+>>> foo = difflib.SequenceMatcher(f,f3)
+>>> print foo.get_matching_blocks()
+[Match(a=1640, b=0, size=0)]
+>>> foo = difflib.SequenceMatcher(None,f,f3)
+>>> print foo.get_matching_blocks()
+[Match(a=0, b=0, size=1), Match(a=8, b=58, size=4), Match(a=12, b=377, size=1), Match(a=15, b=469, size=3), Match(a=36, b=837, size=3), Match(a=54, b=1002, size=2), Match(a=61, b=1067, size=1), Match(a=86, b=1075, size=2), Match(a=93, b=1079, size=2), Match(a=171, b=1115, size=2), Match(a=239, b=1184, size=1), Match(a=541, b=1189, size=2), Match(a=658, b=1191, size=2), Match(a=670, b=1253, size=2), Match(a=682, b=1415, size=1), Match(a=687, b=1523, size=5), Match(a=694, b=1574, size=1), Match(a=743, b=1583, size=1), Match(a=1487, b=1600, size=3), Match(a=1527, b=1620, size=1), Match(a=1599, b=1634, size=2), Match(a=1622, b=1639, size=1), Match(a=4628, b=1640, size=0)]
+>>> foo = difflib.SequenceMatcher(None,f,f2)
+>>> print foo.get_matching_blocks()
+[Match(a=0, b=0, size=12), Match(a=27, b=34, size=28), Match(a=71, b=368, size=1), Match(a=77, b=406, size=1), Match(a=81, b=460, size=3), Match(a=91, b=516, size=2), Match(a=150, b=523, size=3), Match(a=191, b=607, size=1), Match(a=204, b=633, size=2), Match(a=228, b=643, size=5), Match(a=856, b=704, size=4), Match(a=1028, b=823, size=3), Match(a=1352, b=841, size=7), Match(a=1385, b=1173, size=3), Match(a=1622, b=1192, size=3), Match(a=1731, b=1197, size=6), Match(a=1765, b=1226, size=2), Match(a=1768, b=1286, size=6), Match(a=1941, b=1341, size=2), Match(a=1964, b=1360, size=3), Match(a=1973, b=1419, size=2), Match(a=2024, b=1597, size=3), Match(a=2038, b=1772, size=1), Match(a=2107, b=3199, size=5), Match(a=2143, b=3587, size=2), Match(a=2162, b=3718, size=3), Match(a=2173, b=4397, size=3), Match(a=2176, b=4579, size=2), Match(a=2266, b=4598, size=3), Match(a=2278, b=4665, size=1), Match(a=2289, b=4677, size=2), Match(a=2327, b=4717, size=2), Match(a=2627, b=4726, size=3), Match(a=2655, b=4745, size=2), Match(a=2667, b=5052, size=2), Match(a=2692, b=5099, size=1), Match(a=4628, b=5119, size=0)]
+>>> print f[0:12]
+ Articles -
+>>> print f[27:55]
+ - Foggly View all Articles
+>>>
